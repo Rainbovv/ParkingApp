@@ -21,29 +21,29 @@ public class Parking extends Car{
 	}
     
     
-    //  PARKING-BOT
+/////////////////////////////  PARKING-BOT  /////////////////////////////
     public void parkCar(Car c, String place) {
     	
     	place = place.toUpperCase();
     	int placeI = numByLett(place);
     	int placeJ = Character.getNumericValue(place.charAt(0)) - 1;
     	
-    	if(c.getModel() != null && c.getId() != null) {
+    	if(c.getModel() != null && c.getId() != null) 
     		
-    		if (0 <= placeJ && placeJ <= 1  && placeI != 3) {
+    		if (0 <= placeJ && placeJ <= 1  && placeI != 3) 
     			
     			if(parkingArr[placeI][placeJ] == null) {
     				parkingArr[placeI][placeJ] = c;
 					printParking(c,place);
 					freePlaces -= 1;	
-				}
+    			}
 				else
 			    	System.err.println("\nUnfortunately, this place is occupied!"+
 			    			 		   "\nPlease use another one.");
-	    	}	
+	    		
 			else			
 				printPlaceErr();
-    	}
+    	
     	else   	
     		System.err.println("\nYour car is unlicensed!\n"+
 			   		   		   "Please come back with a licensed one!");
@@ -63,7 +63,7 @@ public class Parking extends Car{
     }
   
     
-    //  GETTERS
+///////////////////////////////  GETTERS  ///////////////////////////////
     public byte getFreePlaces() {
 		return freePlaces;
 	}
@@ -75,9 +75,9 @@ public class Parking extends Car{
     	int placeJ = Character.getNumericValue(place.charAt(0)) - 1;
     	
     	if (0 <= placeJ && placeJ <= 1  && placeI != 3) {
-	    	if (parkingArr[placeI][placeJ] != null) {
+	    	if (parkingArr[placeI][placeJ] != null) 
 	    		return parkingArr[placeI][placeJ];
-	    	}
+	    	
 	    	else
 	    		System.err.printf("%nTHE PLACE - %s - IS EMPTY!!!", place);
 	    		return null;
@@ -89,7 +89,7 @@ public class Parking extends Car{
     }
     
 
-    //  PRINT TEMPLATES
+///////////////////////////  PRINT TEMPLATES  ///////////////////////////
     public void printMap() {
    		
     	System.out.println("\n\n---------------------------");
@@ -102,8 +102,8 @@ public class Parking extends Car{
 	    	printId(parkingArr[i][1]);
 	    	System.out.println("|");
 	    	System.out.print("---------------------------\n");
-
-	    }
+    	}
+    
     }
     
     void printParking(Car c, String placeJ ) {

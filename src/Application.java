@@ -8,6 +8,7 @@ public class Application {
 		p1.parkCar(c1, "1a");
 		p1.parkCar(c2, "2c");
 		p1.printMap();
+		p1.printInfoPlace("1A");
 	}
 		
 }
