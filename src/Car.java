@@ -52,8 +52,8 @@ public class Car {
 		
 		else
 			System.err.println("THERE IS NO SUCH A MODEL!!!\n"+
-					   		   "Please enter one of this models:\n"+
-					           "BMW, Mercedes, Fiat!");		
+					   "Please enter one of this models:\n"+
+					   "BMW, Mercedes, Fiat!");		
 	}
 
 	public void setId(String id) {
