@@ -7,8 +7,7 @@ public class Car {
 	
 	
 	//  CONSTRUCTOR
-	Car () {
-	}
+	Car () {}
 	
 	Car (String model, String id) {
 		setModel(model);
