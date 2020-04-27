@@ -15,8 +15,7 @@ public class Car {
 		if (this.model == null)
 			return;
 		else	
-			setId(id);
-		
+			setId(id);		
 	}
 	
 	
