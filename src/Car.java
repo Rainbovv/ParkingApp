@@ -7,8 +7,7 @@ public class Car {
 	
 	
 	//  CONSTRUCTOR
-	Car () {
-	}
+	Car () {}
 	
 	Car (String model, String id) {
 		setModel(model);
@@ -16,8 +15,7 @@ public class Car {
 		if (this.model == null)
 			return;
 		else	
-			setId(id);
-		
+			setId(id);	
 	}
 	
 	
