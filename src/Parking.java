@@ -10,8 +10,8 @@ public class Parking extends Car{
 	private Car place2B;
 	private Car place2C;
 	Car[][] parkingArr = {{place1A, place2A}, 
-					      {place1B, place2B}, 
-					      {place1C, place2C}};
+			      {place1B, place2B}, 
+			      {place1C, place2C}};
 
     
 	//  CONSTRUCTOR    
@@ -52,7 +52,7 @@ public class Parking extends Car{
 
 		else			
 			System.err.println("\nUnfortunately, we don't have such a place.\n"+
-					   		   "Please use one from the range: [1A] ---> [2C]");
+					   "Please use one from the range: [1A] ---> [2C]");
 			return false;  		
 	}
     
@@ -65,7 +65,7 @@ public class Parking extends Car{
 
 		}else
 			System.err.println("\nUnfortunately, this place is occupied!"+
-					   		   "\nPlease use another one.");
+					   "\nPlease use another one.");
 	}
   
 	private boolean checkingLicense(Car c) {
@@ -74,7 +74,7 @@ public class Parking extends Car{
 		
 		else
 			System.err.println("\nYour car is unlicensed!\n"+
-			   		   		   "Please come back with a licensed one!");
+					   "Please come back with a licensed one!");
 			return false;
 	}
 	
@@ -124,7 +124,7 @@ public class Parking extends Car{
     
     void printParking(Car c, String placeJ ) {
 		System.out.printf("The %s with the ID [%s] is parked in the place [%s]%n", 
-    						   c.getModel(), c.getId(), placeJ);
+				   c.getModel(), c.getId(), placeJ);
     }
 
     
