@@ -1,4 +1,3 @@
-
 public class Parking extends Car{
 
 	
@@ -11,13 +10,13 @@ public class Parking extends Car{
 	private Car place2B;
 	private Car place2C;
 	Car[][] parkingArr = {{place1A, place2A}, 
-			      {place1B, place2B}, 
-			      {place1C, place2C}};
+					      {place1B, place2B}, 
+					      {place1C, place2C}};
 
     
 	//  CONSTRUCTOR    
 	Parking() {
-    		this.freePlaces = 6;
+		this.freePlaces = 6;
 	}
     
     
@@ -28,14 +27,9 @@ public class Parking extends Car{
 		int placeI = numByLett(place);
 		int placeJ = Character.getNumericValue(place.charAt(0)) - 1;
 
-		if(c.getModel() != null && c.getId() != null) {
-
+		if(checkingLicense(c)) 
 			if (checkingPlace(placeI,placeJ))   			   			
-				checkingPlaceAvailability(c, placeI, placeJ, place);
-
-		}else   	
-			System.err.println("\nYour car is unlicensed!\n"+
-					   "Please come back with a licensed one!");
+				setCar(c, placeI, placeJ, place);
 	}
     
 	private int numByLett(String place) {
@@ -48,7 +42,7 @@ public class Parking extends Car{
 				return 2;
 			default:
 				return 3;
-    		}
+    	}
 	}
     
 	private boolean checkingPlace(int placeI, int placeJ) {
@@ -58,11 +52,11 @@ public class Parking extends Car{
 
 		else			
 			System.err.println("\nUnfortunately, we don't have such a place.\n"+
-					   "Please use one from the range: [1A] ---> [2C]");
+					   		   "Please use one from the range: [1A] ---> [2C]");
 			return false;  		
 	}
     
-	private void checkingPlaceAvailability(Car c, int placeI, int placeJ, String place) {
+	private void setCar(Car c, int placeI, int placeJ, String place) {
     	
 		if(parkingArr[placeI][placeJ] == null) { 
 			parkingArr[placeI][placeJ] = c;
@@ -71,20 +65,30 @@ public class Parking extends Car{
 
 		}else
 			System.err.println("\nUnfortunately, this place is occupied!"+
-					   "\nPlease use another one.");
+					   		   "\nPlease use another one.");
 	}
   
+	private boolean checkingLicense(Car c) {
+		if(c.getModel() != null)
+			return true;
+		
+		else
+			System.err.println("\nYour car is unlicensed!\n"+
+			   		   		   "Please come back with a licensed one!");
+			return false;
+	}
+	
     
 ///////////////////////////////  GETTERS  ///////////////////////////////
-    	public byte getFreePlaces() {
+	public byte getFreePlaces() {
 		return freePlaces;
 	}
     
-    	public Car getCar(String place) {
+	public Car getCar(String place) {
     	
-    		place = place.toUpperCase();
+		place = place.toUpperCase();
 		int placeI = numByLett(place);
-    		int placeJ = Character.getNumericValue(place.charAt(0)) - 1;
+		int placeJ = Character.getNumericValue(place.charAt(0)) - 1;
     	
 		if (checkingPlace(placeI,placeJ)) {
 
@@ -98,14 +102,14 @@ public class Parking extends Car{
 		else
 			return null;
     		
-    	}
+    }
     
 
 ///////////////////////////  PRINT TEMPLATES  ///////////////////////////
    	public void printMap() {
    		
-    		System.out.println("\n\n---------------------------");
-    	
+		System.out.println("\n\n---------------------------");
+	
 		for(int i = 0 ; i < parkingArr.length; i++) {
 			printModel(parkingArr[i][0]);
 			printModel(parkingArr[i][1]);
@@ -118,15 +122,16 @@ public class Parking extends Car{
     
    	}
     
-    	void printParking(Car c, String placeJ ) {
-    		System.out.printf("The %s with the ID [%s] is parked in the place [%s]%n", 
-				   c.getModel(), c.getId(), placeJ);
-    	}
+    void printParking(Car c, String placeJ ) {
+		System.out.printf("The %s with the ID [%s] is parked in the place [%s]%n", 
+    						   c.getModel(), c.getId(), placeJ);
+    }
 
     
     //  PRINT PLACE INFO
 	public void printInfoPlace(String place) {
 		
+		place = place.toUpperCase();
 		Car c = getCar(place);
 		
 		if (c != null) 		
