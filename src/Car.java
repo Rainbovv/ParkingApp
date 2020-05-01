@@ -19,23 +19,15 @@ public class Car {
 	}
 	
 	
-////////////////////  PRINT CAR INFO - templates  /////////////////////	
-	void printModel() {
-    		System.out.printf(getModel());
-    	}
-	
-	public void printModel(Car c) {
+///////////////////////////  PRINT INFO  ////////////////////////////		
+	protected void printModel(Car c) {
 		if(c != null) 
 			System.out.printf("| %-10s ", c.getModel());
 		else
 			System.out.printf("| %-10.0f ", 0f);  	
     	}
-	 
-	public void printId() {
-    		System.out.print(getId());
-	}
 	
-    	void printId(Car c) {
+    	protected void printId(Car c) {
 		if(c != null) 
 			System.out.printf("| %-10s ", c.getId());
 		else
